@@ -1,0 +1,7 @@
+015aeec22fa2b48a261c7ab3988f9cc2 *DESCRIPTION
+781093bfb308cb200c6a18aafb555962 *NAMESPACE
+7d0f4d8de8aa2a913d06d39a2932cb34 *R/simTargetCov.R
+9dcfe6043ddfea2840423f928b24ab4a *README.md
+c2df3f8695d0b9a5a9d0409299e6e2df *man/simTargetCov.Rd
+84cd4785e3d6e6a86f39eeffa11ccd52 *tests/testthat.R
+67715bfbd72867c6a36a65d0ca7d7888 *tests/testthat/test_difference_target_empirical.R
