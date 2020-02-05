@@ -4,10 +4,10 @@
 #'
 #' @description \code{simTargetCov} transforms or simulates data with a target empirical covariance matrix supplied by the user.
 #'
-#' @param X Data matrix for transformation.
 #' @param n Number of observations for data matrix output.
 #' @param p Number of variables for data matrix output.
 #' @param target Target empirical covariance for data matrix output.
+#' @param X Data matrix for transformation.
 #'
 #' @export
 #'
@@ -35,7 +35,7 @@
 #' sim.target.cov <- simTargetCov(n = 30, p = 6, target = target_cor(0.5,6))
 #' round(cov(sim.target.cov), 2)
 #'
-simTargetCov <- function(X=NULL, n, p, target){
+simTargetCov <- function(n, p, target, X=NULL){
 
   # Input check for target
   if(!is.matrix(target))
@@ -62,9 +62,11 @@ simTargetCov <- function(X=NULL, n, p, target){
   }
 
   # Case where the original data is provided by the user
-  if(!is.null(X))
-    Xtilde <- X else # Simulated data for the user (multivariate Gaussian distribution default)
-      X <- MASS::mvrnorm(n, mu=rep(0,p), Sigma=target)
+  if(is.null(X))
+    X <- MASS::mvrnorm(n, mu=rep(0,p), Sigma=target)
+
+  # Storing the column means of the data
+  X.colMeans <- colMeans(X)
 
   # Covariance matrix of scaled data
   X.tilde <- scale(X)
@@ -78,6 +80,9 @@ simTargetCov <- function(X=NULL, n, p, target){
   # Transformation by rotation of data matrix
   res.target.cor <- eigen(target, symmetric=TRUE)
   Y <- t(res.target.cor$vectors%*%sqrt(diag(res.target.cor$values))%*%t(Z.tilde))
+
+  # Adding the column means back to original data
+  Y <- sapply(1:ncol(Y), function(k, Y, col.mean){Y[,k]+col.mean[k]}, Y=Y, col.mean=X.colMeans)
 
   # Return data with target empirical covariance matrix
   return(Y)

@@ -4,16 +4,16 @@
 \alias{simTargetCov}
 \title{Data Transformation or Simulation with Target Empirical Covariance Matrix}
 \usage{
-simTargetCov(X = NULL, n, p, target)
+simTargetCov(n, p, target, X = NULL)
 }
 \arguments{
-\item{X}{Data matrix for transformation.}
-
 \item{n}{Number of observations for data matrix output.}
 
 \item{p}{Number of variables for data matrix output.}
 
 \item{target}{Target empirical covariance for data matrix output.}
+
+\item{X}{Data matrix for transformation.}
 }
 \description{
 \code{simTargetCov} transforms or simulates data with a target empirical covariance matrix supplied by the user.

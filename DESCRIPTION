@@ -2,8 +2,8 @@ Package: simTargetCov
 Type: Package
 Title: Data Transformation or Simulation with Empirical Covariance
         Matrix
-Version: 1.0
-Date: 2019-10-02
+Version: 1.0.1
+Date: 2020-02-02
 Author: Anthony Christidis <anthony.christidis@stat.ubc.ca>,
     Stefan Van Aelst <stefan.vanaelst@kuleuven.be>,
     Ruben Zamar <ruben@stat.ubc.ca>
@@ -16,9 +16,9 @@ License: GPL (>= 2)
 Biarch: true
 Imports: MASS, stats
 Depends:
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests: testthat
 NeedsCompilation: no
-Packaged: 2019-10-07 19:10:24 UTC; antho
+Packaged: 2020-02-05 18:06:01 UTC; antho
 Repository: CRAN
-Date/Publication: 2019-10-10 13:30:02 UTC
+Date/Publication: 2020-02-05 19:00:02 UTC
